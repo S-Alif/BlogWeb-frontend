@@ -63,9 +63,20 @@ const BlogPage = () => {
       return response.data['data']
     }
 
-    // pass the comment
-    let supplyComment = async (e) => {
+    let validate = (e) => {
       e.preventDefault()
+      if(comments.length > 100 || comments.length < 2){
+        Swal.fire({
+          icon: "info",
+          text: "comment cannot be more than 100 and less than 2 characters"
+        })
+        return
+      }
+      supplyComment()
+    }
+
+    // pass the comment
+    let supplyComment = async () => {
 
       let userData = await getUser(sessionStorage.getItem('user'))
 
@@ -152,7 +163,7 @@ const BlogPage = () => {
 
             <div className="comment-form mt-5">
               {
-                headers.headers.token ? <form action="" onSubmit={supplyComment}>
+                headers.headers.token ? <form action="" onSubmit={validate}>
                   <textarea type="text" rows={3} className="form-control" value={comments} onChange={(e) => setComments(e.target.value)} placeholder="write a comment" required minLength={10} />
                   <div className="text-end pt-3">
                     <button className="btn btn-success">submit</button>

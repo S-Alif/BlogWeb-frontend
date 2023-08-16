@@ -55,10 +55,10 @@ const Forms = () => {
     if(data.category == ""){
       throwAlert("categoty", "must be selected")
     }
-    else if (data.blogTitle.trim().length < 10){
-      throwAlert("blogTitle", "cannot be less than 10 character")
+    else if (data.blogTitle.trim().length < 10 && data.blogTitle.trim().length > 50 ){
+      throwAlert("blogTitle", "cannot be less than 10 or more than 50 characters")
     }
-    else if (data.blogText.trim().length < 250){
+    else if (data.blogText.length < 250){
       throwAlert("blogText", "cannot be less than 250 character")
     }
     else{
