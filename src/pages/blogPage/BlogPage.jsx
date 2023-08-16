@@ -8,6 +8,7 @@ import Comment from "../../components/comment/Comment";
 import Navigation from "../../components/navigation/Navigation";
 import baseUrl from "../../components/Url";
 import Footer from "../../components/footer/Footer";
+import { HashLink } from "react-router-hash-link";
 
 const BlogPage = () => {
 
@@ -115,7 +116,7 @@ const BlogPage = () => {
       <Navigation />
       <section className="blog-page py-5">
         <div className="container">
-          <button className="btn btn-dark mb-4">go back</button>
+          <HashLink to={'/'} className="btn btn-dark mb-4">go back</HashLink>
 
           <div className="blog-image rounded-2 shadow-lg mt-4">
             <img src={data['blogCoverImg']} alt="" />
