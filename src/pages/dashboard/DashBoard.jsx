@@ -130,9 +130,9 @@ const DashBoard = () => {
                       <button className="btn btn-primary rounded-1 ms-2">forgot password</button>
                     </div>
                   </div>
-
-
                 </form>
+
+                <p className="pt-4 fw-semibold fs-4">Total comments : <span className="fw-medium">{user.totalCommentCount}</span></p>
               </div>
             </div>
           </div>

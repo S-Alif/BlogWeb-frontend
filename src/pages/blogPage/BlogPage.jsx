@@ -17,6 +17,7 @@ const BlogPage = () => {
   const [author, setAuthor] = useState([])
   const [comments, setComments] = useState("")
   const [allComment, setAllComment] = useState([])
+  const [load, setload] = useState(0)
 
 
   let headers = {
@@ -48,12 +49,13 @@ const BlogPage = () => {
         .then(res => {
           setData(res.data['data'])
           setAuthor(res.data['user'])
+          setload(0)
         })
         .catch(err => console.log(err))
 
       await getAllComments()
     })()
-  }, [])
+  }, [load])
 
     // get a single user
     let getUser = async (id) => {
@@ -87,7 +89,7 @@ const BlogPage = () => {
               text: "comment posted"
             })
             setComments("")
-            getAllComments()
+            setload(1)
             return
           }
           else{
