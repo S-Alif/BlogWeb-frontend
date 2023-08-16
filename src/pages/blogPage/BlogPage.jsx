@@ -79,7 +79,7 @@ const BlogPage = () => {
         }
       }
 
-      await axios.post(baseUrl+'/blog/comment', payload, headers)
+      await axios.post(baseUrl+'/comment', payload, headers)
         .then(res => {
           if(res.data['status'] == 1){
             Swal.fire({
@@ -100,10 +100,6 @@ const BlogPage = () => {
           }
         }).catch(err => {
           console.log(err)
-          Swal.fire({
-            icon: "error",
-            text: "please log in to comment"
-          })
         })
 
     }

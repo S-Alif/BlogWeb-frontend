@@ -131,7 +131,7 @@ const Forms = () => {
               
               <div className="col-md-8">
                 <div className="form-box">
-                  <form action="" onSubmit={validate}>
+                  <form action="" onSubmit={validate} noValidate>
 
                     <div className="input-group mb-3">
                       <span className="input-group-text bg-info-subtle fw-bold">Category</span>
