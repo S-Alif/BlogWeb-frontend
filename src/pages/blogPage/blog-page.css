@@ -1,0 +1,16 @@
+.blog-page .blog-image{
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.blog-page .card{
+  border: 2px solid var(--bs-border-color);
+  border-style: dashed;
+}
+
+.blog-page .user-box .card .image{
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}

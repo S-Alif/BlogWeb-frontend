@@ -1,0 +1,96 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&display=swap');
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
+
+
+html{
+  font-size: 100%;
+  box-sizing: border-box;
+}
+body{
+  overflow-x: hidden;
+  font-family: 'open sans', 'baloo da 2', sans-serif;
+}
+
+img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.login-register,
+.otp-verify{
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content{
+  width: 600px;
+  max-width: calc(100% - 10px);
+  height: auto;
+  display: block;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 25px 20px;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+/* login page */
+.login-register .content .controls .btn:nth-child(1):hover{
+  color: var(--bs-green);
+}
+.login-register .content .controls .btn:nth-child(2):hover{
+  color: var(--bs-primary);
+}
+
+
+/* homepage */
+.home{
+  width: 100%;
+  height: 100vh;
+  display: block;
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1558174685-430919a96c8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* card boxes */
+.card-box{
+  overflow: hidden;
+}
+.card-box .blog{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card-box .image{
+  width: 100%;
+  height: 200px;
+  display: block;
+  overflow: hidden;
+}
+
+
+/* comments */
+.comment-boxes{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.comment-boxes .image{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+}
