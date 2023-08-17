@@ -80,7 +80,7 @@ const HomePage = () => {
             <div className="col-12">
               <input type="text" className='form-control border border-black' value={search} onChange={(e) => setSearch(e.target.value)} placeholder='search...' />
             </div>
-            <div className="col-2 mt-4">
+            <div className="col-4 col-lg-2 mt-4">
               <select className='form-select' value={category} onChange={(e) => setCategory(e.target.value)}>
                 <option value="">All</option>
                 <option value="science">science</option>
