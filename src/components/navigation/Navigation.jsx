@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './navigation.css'
 import { HashLink } from 'react-router-hash-link';
+import Swal from 'sweetalert2';
 
 const Navigation = () => {
 
@@ -10,6 +11,24 @@ const Navigation = () => {
   useEffect(() => {
     setId(sessionStorage.getItem('user'))
   }, [])
+
+  let logout = () => {
+    Swal.fire({
+      icon:'question',
+      text:"Do you want to log out ?",
+      showDenyButton: false,
+      showCancelButton: true,
+      confirmButtonText: 'logout',
+      confirmButtonColor: "red"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        sessionStorage.clear()
+        setTimeout(() => {
+          window.location.replace('/')
+        }, 2000)
+      }
+    })
+  }
 
   return (
     <>
@@ -23,7 +42,8 @@ const Navigation = () => {
         <HashLink to="/">Home</HashLink>
         <HashLink to="/create-blog">Create blog</HashLink>
         <HashLink to={`/dashboard/${id}`} className={`${id ? "" : "d-none"}`}>Dashboard</HashLink>
-        <HashLink to="/login">Login</HashLink>
+        <HashLink to="/login" className={`${id ? "d-none" : ""}`}>Login</HashLink>
+        <button type='button' className={`btn ${id ? "" : "d-none"}`} onClick={logout}>Logout</button>
       </div>
     </>
   );
