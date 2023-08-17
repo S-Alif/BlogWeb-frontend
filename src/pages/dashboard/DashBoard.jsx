@@ -110,7 +110,7 @@ const DashBoard = () => {
                 </div>
               </div>
 
-              <div className="col-lg-8">
+              <div className="col-lg-8 py-5 py-lg-0">
                 <h5 className="fw-bold pb-3 border-bottom border-2">Your details</h5>
 
                 <form action="" className="mt-5" onSubmit={updateUser}>
