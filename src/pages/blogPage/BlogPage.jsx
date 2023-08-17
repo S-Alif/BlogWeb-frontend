@@ -118,8 +118,6 @@ const BlogPage = () => {
     }
 
 
-
-
   return (
     <>
       <Navigation />
@@ -132,19 +130,19 @@ const BlogPage = () => {
           </div>
 
           <span className="badge bg-info rounded-pill mt-5 mb-3 fs-6">{data.category}</span>
-          <h1 className="text-black pb-5 fw-bold">{data['blogTitle']}</h1>
+          <h1 className="text-black pb-5 fw-bold">{`${data['blogTitle']}`}</h1>
 
-          <p className="">{data['blogText']}</p>
+          <p className="blog-text">{data['blogText']}</p>
 
           <div className="user-box mt-5 pt-5">
             <div className="card mb-3 mt-5" style={{ maxWidth: 300 }}>
               <div className="row g-0">
-                <div className="col-md-4">
+                <div className="col-4">
                   <div className="image">
                     <img src={author['pfp']} className="rounded-start" alt="..." />
                   </div>
                 </div>
-                <div className="col-md-8">
+                <div className="col-8">
                   <div className="card-body p-3">
                     <h5 className="card-title fs-6">Author</h5>
                     <p className="card-text fw-bold fs-5">
@@ -161,7 +159,7 @@ const BlogPage = () => {
           <div className="comment-section pt-5">
             <h4 className="fs-4 border-bottom border-2 pb-3 fw-bold">Comments</h4>
 
-            <div className="comment-form mt-5">
+            <div className="comment-form my-5">
               {
                 headers.headers.token ? <form action="" onSubmit={validate}>
                   <textarea type="text" rows={3} className="form-control" value={comments} onChange={(e) => setComments(e.target.value)} placeholder="write a comment" required minLength={10} />
