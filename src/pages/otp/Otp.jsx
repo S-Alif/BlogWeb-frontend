@@ -32,7 +32,7 @@ const Otp = ({mail}) => {
         else {
           Swal.fire({
             icon: 'error',
-            text: `${res.data['data']}`,
+            text: `otp do not match`,
             showConfirmButton: false,
             timer: 3000
           })
