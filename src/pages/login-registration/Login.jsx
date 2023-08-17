@@ -20,12 +20,12 @@ const Login = ({mail}) => {
   const [regPass, setRegPass] = useState("")
 
   // validation
-  let validateEmail = (mail) => {
+  let validateEmail = (valid) => {
 
-    if (mail == "") {
+    if (valid == "") {
       return false
     }
-    else if (mail.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+    else if (valid.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
       return true
     }
     else {
@@ -34,8 +34,8 @@ const Login = ({mail}) => {
   }
 
   // send email
-  let sendOtp = async () => {
-    await axios.post(`${baseUrl}/send-otp/${regMail}`)
+  let sendOtp = async (sendMail) => {
+    await axios.post(`${baseUrl}/send-otp/${sendMail}`)
         .then(res => {
           if(res.data['status'] == 1){
             Swal.fire({
@@ -45,7 +45,7 @@ const Login = ({mail}) => {
               showConfirmButton: false
             })
 
-            mail(regMail)
+            mail(sendMail)
 
             setFname("")
             setLname("")
@@ -83,7 +83,7 @@ const Login = ({mail}) => {
             showConfirmButton: false
           })
 
-          sendOtp()
+          sendOtp(regMail)
         }
         else {
           Swal.fire({
@@ -165,8 +165,18 @@ const Login = ({mail}) => {
           setLogPass("")
 
           setTimeout(() => {
-            navigate(("/"), {replace: true})
+            navigate("/", {replace: true})
           }, 4500)
+        }
+        else if(res.data['status'] == 101){
+          Swal.fire({
+            icon: "info",
+            title: "" + res.data['data'],
+            text: "you have to verify your account before you can log in to your account",
+            timer: 3000,
+            showConfirmButton: false
+          })
+          sendOtp(logMail)
         }
         else{
           Swal.fire({
