@@ -13,7 +13,7 @@ const Forms = () => {
   const [data, setData] = useState({
     blogTitle: "",
     blogText: "",
-    blogCoverImg: "https://placehold.co/1920x1080?font=roboto",
+    blogCoverImg: "https://placehold.jp/c2c2c2/ffffff/1920x1080.png?text=blog%20cover",
     category: "",
     author: sessionStorage.getItem('user')
   })
@@ -55,7 +55,7 @@ const Forms = () => {
     if(data.category == ""){
       throwAlert("categoty", "must be selected")
     }
-    else if (data.blogTitle.trim().length < 10 && data.blogTitle.trim().length > 50 ){
+    else if (data.blogTitle.trim().length < 10 || data.blogTitle.trim().length > 50 ){
       throwAlert("blogTitle", "cannot be less than 10 or more than 50 characters")
     }
     else if (data.blogText.length < 250){
@@ -91,7 +91,7 @@ const Forms = () => {
           setData({
             blogTitle: "",
             blogText: "",
-            blogCoverImg: "https://placehold.co/1920x1080?font=roboto",
+            blogCoverImg: "https://placehold.jp/c2c2c2/ffffff/1920x1080.png?text=blog%20cover",
             category: "",
             author: sessionStorage.getItem('user')
           })
